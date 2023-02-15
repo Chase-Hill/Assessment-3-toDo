@@ -12,6 +12,14 @@
 		AFFA30B2299D8C8A009989CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFFA30B0299D8C8A009989CD /* Main.storyboard */; };
 		AFFA30B4299D8C8B009989CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFA30B3299D8C8B009989CD /* Assets.xcassets */; };
 		AFFA30B7299D8C8B009989CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFFA30B5299D8C8B009989CD /* LaunchScreen.storyboard */; };
+		AFFA30C1299D98C9009989CD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30C0299D98C9009989CD /* Task.swift */; };
+		AFFA30C4299D9A37009989CD /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30C3299D9A37009989CD /* List.swift */; };
+		AFFA30C6299D9CDA009989CD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30C5299D9CDA009989CD /* ListTableViewCell.swift */; };
+		AFFA30CA299D9D02009989CD /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30C9299D9D02009989CD /* TaskTableViewCell.swift */; };
+		AFFA30CC299D9D74009989CD /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30CB299D9D74009989CD /* ListTableViewController.swift */; };
+		AFFA30CE299D9D80009989CD /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30CD299D9D80009989CD /* TaskTableViewController.swift */; };
+		AFFA30D0299D9E13009989CD /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30CF299D9E13009989CD /* TaskController.swift */; };
+		AFFA30D2299D9E1C009989CD /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA30D1299D9E1C009989CD /* ListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		AFFA30B3299D8C8B009989CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFFA30B6299D8C8B009989CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFFA30B8299D8C8B009989CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFFA30C0299D98C9009989CD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		AFFA30C3299D9A37009989CD /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		AFFA30C5299D9CDA009989CD /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		AFFA30C9299D9D02009989CD /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		AFFA30CB299D9D74009989CD /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		AFFA30CD299D9D80009989CD /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
+		AFFA30CF299D9E13009989CD /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		AFFA30D1299D9E1C009989CD /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +70,78 @@
 		AFFA30A9299D8C8A009989CD /* Assessment 3 toDo */ = {
 			isa = PBXGroup;
 			children = (
-				AFFA30AA299D8C8A009989CD /* AppDelegate.swift */,
-				AFFA30AC299D8C8A009989CD /* SceneDelegate.swift */,
-				AFFA30B0299D8C8A009989CD /* Main.storyboard */,
-				AFFA30B3299D8C8B009989CD /* Assets.xcassets */,
-				AFFA30B5299D8C8B009989CD /* LaunchScreen.storyboard */,
-				AFFA30B8299D8C8B009989CD /* Info.plist */,
+				AFFA30BE299D930F009989CD /* Supporting Files */,
+				AFFA30BF299D9896009989CD /* Storyboards */,
+				AFFA30C2299D99D4009989CD /* Models */,
+				AFFA30C8299D9CF2009989CD /* Custom Cells */,
+				AFFA30C7299D9CDD009989CD /* Controllers */,
 			);
 			path = "Assessment 3 toDo";
+			sourceTree = "<group>";
+		};
+		AFFA30BE299D930F009989CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA30AA299D8C8A009989CD /* AppDelegate.swift */,
+				AFFA30AC299D8C8A009989CD /* SceneDelegate.swift */,
+				AFFA30B3299D8C8B009989CD /* Assets.xcassets */,
+				AFFA30B8299D8C8B009989CD /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AFFA30BF299D9896009989CD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA30B0299D8C8A009989CD /* Main.storyboard */,
+				AFFA30B5299D8C8B009989CD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		AFFA30C2299D99D4009989CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA30C0299D98C9009989CD /* Task.swift */,
+				AFFA30C3299D9A37009989CD /* List.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AFFA30C7299D9CDD009989CD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA30D4299D9E32009989CD /* View Controllers */,
+				AFFA30D3299D9E21009989CD /* Model Controllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AFFA30C8299D9CF2009989CD /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA30C5299D9CDA009989CD /* ListTableViewCell.swift */,
+				AFFA30C9299D9D02009989CD /* TaskTableViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		AFFA30D3299D9E21009989CD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA30CF299D9E13009989CD /* TaskController.swift */,
+				AFFA30D1299D9E1C009989CD /* ListController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		AFFA30D4299D9E32009989CD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA30CB299D9D74009989CD /* ListTableViewController.swift */,
+				AFFA30CD299D9D80009989CD /* TaskTableViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +216,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFFA30AB299D8C8A009989CD /* AppDelegate.swift in Sources */,
+				AFFA30D2299D9E1C009989CD /* ListController.swift in Sources */,
+				AFFA30C1299D98C9009989CD /* Task.swift in Sources */,
+				AFFA30CE299D9D80009989CD /* TaskTableViewController.swift in Sources */,
+				AFFA30CA299D9D02009989CD /* TaskTableViewCell.swift in Sources */,
+				AFFA30D0299D9E13009989CD /* TaskController.swift in Sources */,
 				AFFA30AD299D8C8A009989CD /* SceneDelegate.swift in Sources */,
+				AFFA30C4299D9A37009989CD /* List.swift in Sources */,
+				AFFA30C6299D9CDA009989CD /* ListTableViewCell.swift in Sources */,
+				AFFA30CC299D9D74009989CD /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +372,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Assessment 3 toDo/Info.plist";
+				INFOPLIST_FILE = "Assessment 3 toDo/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -311,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Assessment 3 toDo/Info.plist";
+				INFOPLIST_FILE = "Assessment 3 toDo/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
