@@ -1,6 +1,6 @@
 import Foundation
 
-class Task {
+class Task: Codable {
     
     let name: String
     var isChecked: Bool

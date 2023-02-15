@@ -1,12 +1,13 @@
 import Foundation
 
-class List {
+class List: Codable {
     
     let title: String
     var isChecked: Bool
     let id: UUID
+    var tasks: [Task] = []
     
-    init(title: String, isChecked: Bool = false, id: UUID = UUID()) {
+    init(title: String, isChecked: Bool = false, id: UUID = UUID(), tasks: [Task]) {
         self.title = title
         self.isChecked = isChecked
         self.id = id

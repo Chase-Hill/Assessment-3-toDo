@@ -31,6 +31,9 @@
                                             <rect key="frame" x="302.33333333333331" y="0.0" width="74.666666666666686" height="40"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Create"/>
+                                            <connections>
+                                                <action selector="createListButtonTapped:" destination="JHa-p3-OAG" eventType="touchUpInside" id="H5S-ak-mQS"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -144,14 +147,14 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="iiO-ti-grs">
                                             <rect key="frame" x="28" y="19" width="337" height="14"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSC-9q-WCs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSC-9q-WCs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="57" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slt-hY-oK3">
-                                                    <rect key="frame" x="291.33333333333331" y="0.0" width="45.666666666666686" height="14"/>
+                                                    <rect key="frame" x="307" y="0.0" width="30" height="14"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system"/>
                                                 </button>

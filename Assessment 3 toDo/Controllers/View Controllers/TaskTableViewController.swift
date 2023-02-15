@@ -1,10 +1,3 @@
-//
-//  TaskTableViewController.swift
-//  Assessment 3 toDo
-//
-//  Created by Chase on 2/15/23.
-//
-
 import UIKit
 
 class TaskTableViewController: UITableViewController {
@@ -22,11 +15,9 @@ class TaskTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -34,7 +25,6 @@ class TaskTableViewController: UITableViewController {
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
