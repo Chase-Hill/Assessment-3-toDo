@@ -85,7 +85,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="PMW-TA-n3c" kind="show" id="Anx-u9-rot"/>
+                                    <segue destination="PMW-TA-n3c" kind="show" identifier="toTask" id="Anx-u9-rot"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -95,6 +95,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Todo List" id="78f-3f-PEE"/>
+                    <connections>
+                        <outlet property="listNameTextField" destination="MQF-pe-M3W" id="oBK-aQ-I4S"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEV-FF-bdc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,6 +179,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Nfp-vd-6qK"/>
+                    <connections>
+                        <outlet property="taskNameTextField" destination="fmx-W4-qhB" id="HSb-8N-vZe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAL-JW-duB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
