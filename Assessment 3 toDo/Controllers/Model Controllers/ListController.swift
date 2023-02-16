@@ -30,6 +30,12 @@ class ListController {
         
     }
     
+    func toggleIsChecked(list: List) {
+        list.isChecked.toggle()
+        
+        save()
+    }
+    
     func deleteList(listToDelete: List) {
         guard let index = lists.firstIndex(of: listToDelete) else { return }
         lists.remove(at: index)

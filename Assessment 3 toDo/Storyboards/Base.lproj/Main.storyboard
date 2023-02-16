@@ -57,19 +57,30 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="fkV-Cu-tp0">
                                             <rect key="frame" x="28" y="19" width="318.66666666666669" height="14"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGf-Y4-7JQ">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGf-Y4-7JQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="52.333333333333336" height="14"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="checkmark.diamond" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="listCheckTapped:" destination="xRX-TP-UqV" eventType="touchUpInside" id="q2D-Rd-uur"/>
+                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" text="listName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLC-AT-njl">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zDS-Ez-kCh">
                                                     <rect key="frame" x="141.33333333333334" y="0.0" width="66.666666666666657" height="14"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="thingsToDo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewP-4S-YyL">
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="listName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLC-AT-njl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="66.666666666666671" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="thingsToDo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewP-4S-YyL">
                                                     <rect key="frame" x="297" y="0.0" width="21.666666666666686" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="21.666666666666686" id="L8k-IA-OSw"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -85,6 +96,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="listCheck" destination="UGf-Y4-7JQ" id="qes-BK-EAC"/>
+                                    <outlet property="listNameLabel" destination="jLC-AT-njl" id="MRH-S4-o41"/>
+                                    <outlet property="taskNumberLabel" destination="ewP-4S-YyL" id="n2K-sD-RVD"/>
                                     <segue destination="PMW-TA-n3c" kind="show" identifier="toTask" id="Anx-u9-rot"/>
                                 </connections>
                             </tableViewCell>

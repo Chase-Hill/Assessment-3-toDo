@@ -73,7 +73,6 @@
 				AFFA30BE299D930F009989CD /* Supporting Files */,
 				AFFA30BF299D9896009989CD /* Storyboards */,
 				AFFA30C2299D99D4009989CD /* Models */,
-				AFFA30C8299D9CF2009989CD /* Custom Cells */,
 				AFFA30C7299D9CDD009989CD /* Controllers */,
 			);
 			path = "Assessment 3 toDo";
@@ -111,19 +110,20 @@
 		AFFA30C7299D9CDD009989CD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AFFA30C8299D9CF2009989CD /* Custom Cell Controllers */,
 				AFFA30D4299D9E32009989CD /* View Controllers */,
 				AFFA30D3299D9E21009989CD /* Model Controllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		AFFA30C8299D9CF2009989CD /* Custom Cells */ = {
+		AFFA30C8299D9CF2009989CD /* Custom Cell Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AFFA30C5299D9CDA009989CD /* ListTableViewCell.swift */,
 				AFFA30C9299D9D02009989CD /* TaskTableViewCell.swift */,
+				AFFA30C5299D9CDA009989CD /* ListTableViewCell.swift */,
 			);
-			path = "Custom Cells";
+			path = "Custom Cell Controllers";
 			sourceTree = "<group>";
 		};
 		AFFA30D3299D9E21009989CD /* Model Controllers */ = {
@@ -138,8 +138,8 @@
 		AFFA30D4299D9E32009989CD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AFFA30CB299D9D74009989CD /* ListTableViewController.swift */,
 				AFFA30CD299D9D80009989CD /* TaskTableViewController.swift */,
+				AFFA30CB299D9D74009989CD /* ListTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

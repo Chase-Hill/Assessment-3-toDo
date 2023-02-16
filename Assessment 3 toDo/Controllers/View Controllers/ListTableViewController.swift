@@ -1,7 +1,7 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
-
+    
     // MARK: - Outlet
     
     @IBOutlet weak var listNameTextField: UITextField!
@@ -16,7 +16,6 @@ class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     // MARK: - Action
@@ -33,13 +32,22 @@ class ListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
+        
         let listDisplayed = ListController.shared.lists[indexPath.row]
+        
+        cell.listNameLabel.text = listNameTextField.text
+        
         var cellConfig = cell.defaultContentConfiguration()
         cellConfig.text = listDisplayed.title
         cellConfig.secondaryText = "\(listDisplayed.tasks.count)"
-        cell.contentConfiguration = cellConfig
 
+        let list = ListController.shared.lists[indexPath.row]
+        
+        cell.updateViews()
+        
+        cell.delegate = self
+        
         return cell
     }
 
@@ -63,5 +71,14 @@ class ListTableViewController: UITableViewController {
                 destinationVC.listReciever = listToSend
             }
         }
+    }
+}
+
+extension ListTableViewController: ListTableViewCellDelegate {
+    func isListCheckToggled(cell: ListTableViewCell) {
+        guard let index = tableView.indexPath(for: cell) else { return }
+        let list = ListController.shared.lists[index.row]
+        ListController.shared.toggleIsChecked(list: list)
+        cell.updateViews()
     }
 }
