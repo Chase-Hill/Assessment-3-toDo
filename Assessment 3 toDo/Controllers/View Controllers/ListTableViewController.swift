@@ -21,7 +21,10 @@ class ListTableViewController: UITableViewController {
     // MARK: - Action
     
     @IBAction func createListButtonTapped(_ sender: Any) {
-        ListController.shared.createList()
+        let newName = listNameTextField.text
+        ListController.shared.lists.append(newName)
+
+        //        ListController.shared.createList()
         tableView.reloadData()
     }
     

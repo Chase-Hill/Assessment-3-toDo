@@ -32,9 +32,9 @@ class ListTableViewCell: UITableViewCell {
         guard let list = list else { return }
         listNameLabel.text = list.title
         
-        let checkName = list.isChecked ? "checkmark.diamond.fill" : "checkmark.diamond"
-        let check = UIImage(systemName: checkName)
-        listCheck.setImage(check, for: .normal)
+        let checkImageName = list.isChecked ? "checkmark.diamond.fill" : "checkmark.diamond"
+        let checkImage = UIImage(systemName: checkImageName)
+        listCheck.setImage(checkImage, for: .normal)
     }
     
     // MARK: - Action
