@@ -4,7 +4,7 @@ class TaskController {
     
     // MARK: - CRUD Functions
     
-    static func createTask(name: String = "New Task", list: List) {
+    static func createTask(name: String, list: List) {
         let newTask = Task(name: name)
         list.tasks.append(newTask)
         

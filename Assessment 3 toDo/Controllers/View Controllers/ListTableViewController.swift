@@ -11,7 +11,7 @@ class ListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -21,11 +21,9 @@ class ListTableViewController: UITableViewController {
     // MARK: - Action
     
     @IBAction func createListButtonTapped(_ sender: Any) {
-        let newName = listNameTextField.text
-        ListController.shared.lists.append(newName)
-
-        //        ListController.shared.createList()
-        tableView.reloadData()
+        guard let title = listNameTextField.text, !title.isEmpty else { return }
+        ListController.shared.createList(title: title)
+        self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -39,22 +37,13 @@ class ListTableViewController: UITableViewController {
         
         let listDisplayed = ListController.shared.lists[indexPath.row]
         
-        cell.listNameLabel.text = listNameTextField.text
-        
-        var cellConfig = cell.defaultContentConfiguration()
-        cellConfig.text = listDisplayed.title
-        cellConfig.secondaryText = "\(listDisplayed.tasks.count)"
-
-        let list = ListController.shared.lists[indexPath.row]
-        
-        cell.updateViews()
+        cell.list = listDisplayed
         
         cell.delegate = self
         
         return cell
     }
 
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let listToBeDeleted = ListController.shared.lists[indexPath.row]
@@ -77,11 +66,13 @@ class ListTableViewController: UITableViewController {
     }
 }
 
+// MARK: - Delegate Extension
+
 extension ListTableViewController: ListTableViewCellDelegate {
     func isListCheckToggled(cell: ListTableViewCell) {
         guard let index = tableView.indexPath(for: cell) else { return }
         let list = ListController.shared.lists[index.row]
         ListController.shared.toggleIsChecked(list: list)
-        cell.updateViews()
+        cell.list = list
     }
 }

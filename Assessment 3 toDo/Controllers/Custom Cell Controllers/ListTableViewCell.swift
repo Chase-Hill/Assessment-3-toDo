@@ -32,14 +32,16 @@ class ListTableViewCell: UITableViewCell {
         guard let list = list else { return }
         listNameLabel.text = list.title
         
+        taskNumberLabel.text = String(list.tasks.count)
+        
         let checkImageName = list.isChecked ? "checkmark.diamond.fill" : "checkmark.diamond"
-        let checkImage = UIImage(systemName: checkImageName)
-        listCheck.setImage(checkImage, for: .normal)
+        listCheck.setImage(UIImage(systemName: checkImageName), for: .normal)
     }
     
     // MARK: - Action
             
     @IBAction func listCheckTapped(_ sender: Any) {
         delegate?.isListCheckToggled(cell: self)
+        updateViews()
     }
 }

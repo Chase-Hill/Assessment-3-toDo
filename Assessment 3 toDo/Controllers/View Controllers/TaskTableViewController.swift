@@ -1,12 +1,12 @@
 import UIKit
 
 class TaskTableViewController: UITableViewController {
-
-    var listReciever: List?
     
     private var filteredTasks: [Task] {
         return listReciever?.tasks ?? []
     }
+    
+    var listReciever: List?
     
     // MARK: - Outlets
     
@@ -17,35 +17,84 @@ class TaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     // MARK: - Action
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        guard let list = listReciever else { return }
-        TaskController.createTask(list: list)
-        tableView.reloadData()
+        guard let list = self.listReciever,
+              let name = taskNameTextField.text, !name.isEmpty else { return }
+        TaskController.createTask(name: name, list: list)
+        self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listReciever?.tasks.count ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell,
+              let task = listReciever?.tasks[indexPath.row] else { return UITableViewCell() }
+        
+        cell.updateViews(task: task)
+        cell.delegate = self
+        
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let list = listReciever else { return }
             let task = filteredTasks[indexPath.row]
             TaskController.deleteTask(taskToDelete: task, from: list)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        }    
+        }
+    }
+    
+    // MARK: - Alert Function
+    
+    func areAllTasksChecked() -> Bool {
+        
+        guard let tasks = listReciever?.tasks else {
+            print(listReciever?.tasks ?? "nil")
+            return false
+        }
+        
+        for task in tasks {
+            if !task.isChecked {
+                return false
+            }
+            let allDone = true
+            print(allDone)
+            tableView.reloadData()
+        }
+        return true
+    }
+    
+//
+//            let alert = UIAlertController(title: "All Done!", message: "Want us to delete this list?", preferredStyle: .alert)
+//
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+//
+//            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
+//                if let index = ListController.shared.lists.firstIndex(of: listReciever!) {
+//                    ListController.shared.lists.remove(at: index)
+//                }
+//            })
+//            alert.addAction(cancelAction)
+//            alert.addAction(deleteAction)
+//            present(alert, animated: true)
+//        }
+    }
+
+// MARK: - Extension
+
+extension TaskTableViewController: TaskTableViewCellDelegate {
+    func isCheckToggled(cell: TaskTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell),
+              let task = listReciever?.tasks[indexPath.row] else { return }
+        TaskController.toggleComplete(task: task)
+        cell.updateViews(task: task)
     }
 }

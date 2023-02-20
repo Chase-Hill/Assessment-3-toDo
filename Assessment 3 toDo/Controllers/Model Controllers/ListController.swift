@@ -15,15 +15,13 @@ class ListController {
     // MARK: - Initializers
     
     init() {
-        
         load()
-        
     }
     
     // MARK: - CRUD Functions
     
-    func createList(name: String = "Untitled List", tasks: [Task] = []) {
-        let list = List(title: name, tasks: tasks)
+    func createList(title: String) {
+        let list = List(title: title)
         lists.append(list)
         
         save()
