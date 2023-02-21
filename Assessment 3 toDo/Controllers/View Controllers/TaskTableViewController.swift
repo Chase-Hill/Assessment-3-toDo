@@ -1,10 +1,8 @@
 import UIKit
 
 class TaskTableViewController: UITableViewController {
-    
-    private var filteredTasks: [Task] {
-        return listReciever?.tasks ?? []
-    }
+
+    // MARK: - Properties
     
     var listReciever: List?
     
@@ -46,7 +44,7 @@ class TaskTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let list = listReciever else { return }
-            let task = filteredTasks[indexPath.row]
+            let task = list.tasks[indexPath.row]
             TaskController.deleteTask(taskToDelete: task, from: list)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -54,39 +52,37 @@ class TaskTableViewController: UITableViewController {
     
     // MARK: - Alert Function
     
-    func areAllTasksChecked() -> Bool {
+    func presentAlert() {
         
-        guard let tasks = listReciever?.tasks else {
-            print(listReciever?.tasks ?? "nil")
-            return false
-        }
+        //    What in the world do I want...? I want to present this alert when all checks are checked in my task table view. I need to look at every item in the array. To do that, I need a for-in loop.
         
-        for task in tasks {
-            if !task.isChecked {
-                return false
+        let alert = UIAlertController(title: "All Done!", message: "Want us to delete this list?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
+            guard let listReciever = listReciever else { return }
+            ListController.shared.deleteList(listToDelete: listReciever)
+            navigationController?.popViewController(animated: true)
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        present(alert, animated: true)
+        
+    }
+        
+    func allChecksTapped() {
+        guard var listReciever = listReciever else { return }
+        for task in listReciever.tasks {
+            if task.isChecked == false {
+                return
             }
-            let allDone = true
-            print(allDone)
-            tableView.reloadData()
         }
-        return true
+        presentAlert()
     }
-    
-//
-//            let alert = UIAlertController(title: "All Done!", message: "Want us to delete this list?", preferredStyle: .alert)
-//
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-//
-//            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
-//                if let index = ListController.shared.lists.firstIndex(of: listReciever!) {
-//                    ListController.shared.lists.remove(at: index)
-//                }
-//            })
-//            alert.addAction(cancelAction)
-//            alert.addAction(deleteAction)
-//            present(alert, animated: true)
-//        }
-    }
+}
+
 
 // MARK: - Extension
 
@@ -95,6 +91,8 @@ extension TaskTableViewController: TaskTableViewCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell),
               let task = listReciever?.tasks[indexPath.row] else { return }
         TaskController.toggleComplete(task: task)
+        allChecksTapped()
         cell.updateViews(task: task)
+        self.tableView.reloadData()
     }
 }
